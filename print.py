@@ -28,6 +28,7 @@ class Print(Resource):
             p.set(width=3, height=3)
             p.text(content['doelgroepnummer']+"\n")
             p.set(width=2, height=2)
+            p.text("kleding")
             p.text(content['naam'] + " " + content['voornaam']+"\n")
             p.text(content['kind'] + "\n")
             # p.text(str(content['leeftijd']) + " jaar\n")
