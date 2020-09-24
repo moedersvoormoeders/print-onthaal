@@ -26,12 +26,26 @@ class Print(Resource):
                 return {'status': 'error', 'error': 'No Content'}
 
             p.set(width=3, height=3)
-            p.text(content['doelgroepnummer']+"\n")
+            p.text(content['klant']['mvmNummer']+"\n")
             p.set(width=2, height=2)
-            p.text("kleding\n")
-            p.text(content['naam'] + " " + content['voornaam']+"\n")
-            p.text(content['kind'] + "\n")
-            # p.text(str(content['leeftijd']) + " jaar\n")
+            p.text(content['klant']['voornaam']+" "+content['klant']['naam']"\n")
+            p.text("\n")
+            p.text("Materiaal\n")
+            
+            for item in content['items']:
+                p.text("\n")
+                p.text("----------------")
+                p.text("\n")
+                p.text(item['object'] + "\n")
+                
+                if 'ontvanger' in item and item['ontvanger'] is not None:
+                    p.text(item['ontvanger']["naam"] + "\n")
+                    p.text(item['ontvanger']["geslacht"] + "\n")
+
+                if 'maat' in item and item['maat'] is not None:
+                    p.text(item['maat'] + "\n")
+                
+                p.text(item['opmerking'] + "\n")
             p.cut()
             return {'status': 'ok'}
         except:
