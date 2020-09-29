@@ -46,6 +46,10 @@ class Print(Resource):
                     p.text(item['maat'] + "\n")
                 
                 p.text(item['opmerking'] + "\n")
+                
+                p.text("\n")
+                p.text("----------------")
+                p.text("\n")
             p.cut()
             return {'status': 'ok'}
         except:
