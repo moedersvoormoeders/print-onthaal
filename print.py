@@ -28,7 +28,7 @@ class Print(Resource):
             p.set(width=3, height=3)
             p.text(content['klant']['mvmNummer']+"\n")
             p.set(width=2, height=2)
-            p.text(content['klant']['voornaam']+" "+content['klant']['naam']"\n")
+            p.text(content['klant']['voornaam']+" "+content['klant']['naam']+"\n")
             p.text("\n")
             p.text("Materiaal\n")
             
