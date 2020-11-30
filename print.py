@@ -81,7 +81,7 @@ class Sinterklaas(Resource):
                 p.text("\n")
                 p.text(item['naam'] + "\n")
                 p.text(item["geslacht"] + "\n")
-                p.text(item["leeftijd"] + " jaar\n")
+                p.text(str(item["leeftijd"]) + " jaar\n")
                 p.text(item['opmerking'] + "\n")
                 p.text("\n")
                 p.text("----------------")
