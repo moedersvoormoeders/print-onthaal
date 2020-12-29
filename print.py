@@ -24,6 +24,8 @@ class Print(Resource):
             content = request.json
             if content == None:
                 return {'status': 'error', 'error': 'No Content'}
+            
+            totaalPrijs = 0.0
 
             p.set(width=3, height=3)
             p.text(content['klant']['mvmNummer']+"\n")
@@ -37,6 +39,8 @@ class Print(Resource):
                 p.text("----------------")
                 p.text("\n")
                 p.text(item['object'] + "\n")
+                if item['prijs'] is not None:
+                    totaalPrijs += item['prijs']
                 
                 if 'ontvanger' in item and item['ontvanger'] is not None:
                     p.text(item['ontvanger']["naam"] + "\n")
@@ -50,6 +54,7 @@ class Print(Resource):
                 p.text("\n")
                 p.text("----------------")
                 p.text("\n")
+            p.text("Totaal " + str(totaalPrijs) + " EUR")
             p.cut()
             return {'status': 'ok'}
         except:
