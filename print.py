@@ -39,7 +39,7 @@ class Print(Resource):
                 p.text("----------------")
                 p.text("\n")
                 p.text(item['object'] + "\n")
-                if item['prijs'] is not None:
+                if 'prijs' in item and item['prijs'] is not None:
                     totaalPrijs += item['prijs']
                 
                 if 'ontvanger' in item and item['ontvanger'] is not None:
