@@ -47,7 +47,7 @@ class Print(Resource):
                     p.text(item['ontvanger']["geslacht"] + "\n")
 
                 if 'maat' in item and item['maat'] is not None:
-                    p.text(item['maat'] + "\n")
+                    p.text("Maat: "+ item['maat'] + "\n")
                 
                 p.text(item['opmerking'] + "\n")
                 
