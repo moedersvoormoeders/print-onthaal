@@ -50,7 +50,7 @@ class Print(Resource):
                     if 'leeftijd' in item['ontvanger'] and item['ontvanger']['leeftijd'] is not None:
                         p.text(item['ontvanger']["leeftijd"] + " jaar\n")
 
-                if 'maat' in item and item['maat'] is not None:
+                if 'maat' in item and item['maat'] is not None and item['maat'] is not "" and item['maat'] is not "<geen>":
                     p.text("Maat: "+ item['maat'] + "\n")
                 
                 p.text(item['opmerking'] + "\n")
