@@ -27,6 +27,7 @@ class Print(Resource):
             
             totaalPrijs = 0.0
 
+            p.barcode(content['klant']['mvmNummer'].replace("MVM", ""), "CODE39")
             p.set(width=3, height=3)
             p.text(content['klant']['mvmNummer']+"\n")
             p.set(width=2, height=2)
