@@ -43,8 +43,10 @@ class Print(Resource):
                     totaalPrijs += item['prijs']
                 
                 if 'ontvanger' in item and item['ontvanger'] is not None:
-                    p.text(item['ontvanger']["naam"] + "\n")
-                    p.text(item['ontvanger']["geslacht"] + "\n")
+                    if 'naam' in item['ontvanger'] and item['ontvanger']['naam'] is not None:
+                        p.text(item['ontvanger']["naam"] + "\n")
+                    if 'geslacht' in item['ontvanger'] and item['ontvanger']['geslacht'] is not None:
+                        p.text(item['ontvanger']["geslacht"] + "\n")
                     if 'leeftijd' in item['ontvanger'] and item['ontvanger']['leeftijd'] is not None:
                         p.text(item['ontvanger']["leeftijd"] + " jaar\n")
 
