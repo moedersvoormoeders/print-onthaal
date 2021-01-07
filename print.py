@@ -45,6 +45,8 @@ class Print(Resource):
                 if 'ontvanger' in item and item['ontvanger'] is not None:
                     p.text(item['ontvanger']["naam"] + "\n")
                     p.text(item['ontvanger']["geslacht"] + "\n")
+                    if 'leeftijd' in item['ontvanger'] and item['ontvanger']['leeftijd'] is not None:
+                        p.text(item['ontvanger']["leeftijd"] + " jaar\n")
 
                 if 'maat' in item and item['maat'] is not None:
                     p.text("Maat: "+ item['maat'] + "\n")
