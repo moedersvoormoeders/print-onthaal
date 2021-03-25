@@ -11,7 +11,7 @@ type MateriaalRequest struct {
 		Object    string  `json:"object"`
 		Prijs     float64 `json:"prijs"`
 		Maat      string  `json:"maat"`
-		Opmerking string  `json:"maat"`
+		Opmerking string  `json:"opmerking"`
 		Ontvanger struct {
 			Geslacht string `json:"geslacht"`
 			Leeftijd int    `json:"leeftijd"`

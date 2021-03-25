@@ -75,13 +75,19 @@ func handleMateriaalPrint(c echo.Context) error {
 
 		p.PrintLn(entry.Object)
 
+		hasMaat := false
+		if entry.Maat != "" && entry.Maat != "<geen>" {
+			hasMaat = true
+		}
 		if entry.Ontvanger.Naam != "" {
 			p.PrintLn(entry.Ontvanger.Naam)
 			p.PrintLn(entry.Ontvanger.Geslacht)
-			p.PrintLn(fmt.Sprintf("%d jaar", entry.Ontvanger.Leeftijd))
+			if !hasMaat {
+				p.PrintLn(fmt.Sprintf("%d jaar", entry.Ontvanger.Leeftijd))
+			}
 		}
 
-		if entry.Maat != "" && entry.Maat != "<geen>" {
+		if hasMaat {
 			p.PrintLn(fmt.Sprintf("Maat: %s", entry.Maat))
 		}
 

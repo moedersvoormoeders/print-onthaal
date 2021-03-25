@@ -29,6 +29,8 @@ github.com/mect/go-escpos v0.0.0-20210303211126-5a0d0ffac65d h1:+VkTz5UxHBztRhVB
 github.com/mect/go-escpos v0.0.0-20210303211126-5a0d0ffac65d/go.mod h1:Iz0UTSrnNxJI/+pkmGh9vw8Fj1ALtAur09KUgDziQ44=
 github.com/mect/go-escpos v0.0.0-20210303220453-291d67a5b6a9 h1:dpH7PurJp3+HwEtDIlsmKzVdifKQOxrcVjbmCVTCpPo=
 github.com/mect/go-escpos v0.0.0-20210303220453-291d67a5b6a9/go.mod h1:Iz0UTSrnNxJI/+pkmGh9vw8Fj1ALtAur09KUgDziQ44=
+github.com/mect/go-escpos v0.0.0-20210325080415-f7f1d2244377 h1:dd2CPI3geu2mPP7hgx2TO1UgaAex4C2yQ4WIXHSJnik=
+github.com/mect/go-escpos v0.0.0-20210325080415-f7f1d2244377/go.mod h1:Iz0UTSrnNxJI/+pkmGh9vw8Fj1ALtAur09KUgDziQ44=
 github.com/pmezard/go-difflib v1.0.0 h1:4DBwDE0NGyQoBHbLQYPwSUPoCMWR5BEzIk/f1lZbAQM=
 github.com/pmezard/go-difflib v1.0.0/go.mod h1:iKH77koFhYxTK1pcRnkKkqfTogsbg7gZNVY4sRDYZ/4=
 github.com/stretchr/objx v0.1.0/go.mod h1:HFkY916IF+rwdDfMAkV7OtwuqBVzrE8GR6GFx+wExME=
