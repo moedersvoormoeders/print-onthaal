@@ -51,7 +51,9 @@ func handleMateriaalPrint(c echo.Context) error {
 		return c.JSON(http.StatusOK, echo.Map{"status": "error", "error": "Printer reageert niet, check status en papier"})
 	}
 
+	p.Align(escpos.AlignCenter)
 	p.Barcode(strings.Replace(data.Klant.MVMNummer, "MVM", "", -1), escpos.BarcodeTypeCODE39)
+	p.PrintLn("")
 
 	p.Align(escpos.AlignLeft)
 	p.Size(3, 3)
@@ -85,14 +87,14 @@ func handleMateriaalPrint(c echo.Context) error {
 		p.PrintLn(entry.Opmerking)
 	}
 
-	p.Cut()
-	p.End()
-
 	p.PrintLn("")
 	p.PrintLn("----------------")
 	p.PrintLn("")
 
 	p.PrintLn(fmt.Sprintf("Totaal: %f EUR", totaal))
+
+	p.Cut()
+	p.End()
 
 	return c.JSON(http.StatusOK, echo.Map{"status": "ok"})
 }
