@@ -51,8 +51,9 @@ func handleMateriaalPrint(c echo.Context) error {
 		return c.JSON(http.StatusOK, echo.Map{"status": "error", "error": "Printer reageert niet, check status en papier"})
 	}
 
-	p.Align(escpos.AlignCenter)
+	//p.Align(escpos.AlignCenter)
 	p.Barcode(strings.Replace(data.Klant.MVMNummer, "MVM", "", -1), escpos.BarcodeTypeCODE39)
+	p.PrintLn("")
 	p.PrintLn("")
 
 	p.Align(escpos.AlignLeft)
@@ -91,7 +92,7 @@ func handleMateriaalPrint(c echo.Context) error {
 	p.PrintLn("----------------")
 	p.PrintLn("")
 
-	p.PrintLn(fmt.Sprintf("Totaal: %f EUR", totaal))
+	p.PrintLn(fmt.Sprintf("\n\nTotaal: %.2f EUR", totaal))
 
 	p.Cut()
 	p.End()
@@ -169,7 +170,7 @@ func handleSinterklaasPrint(c echo.Context) error {
 
 		p.PrintLn(entry.Naam)
 		p.PrintLn(entry.Geslacht)
-		p.PrintLn(fmt.Sprintf("%f jaar", entry.Leeftijd))
+		p.PrintLn(fmt.Sprintf("%.1f jaar", entry.Leeftijd))
 		p.PrintLn(entry.Opmerking)
 
 		p.PrintLn("")
