@@ -186,21 +186,21 @@ func handleSinterklaasPrint(c echo.Context) error {
 
 	p.Cut()
 
-	p.Size(3, 3)
-	p.PrintLn(data.Snoep.MVMNummer)
+	// p.Size(3, 3)
+	// p.PrintLn(data.Snoep.MVMNummer)
 
-	p.Size(2, 2)
-	p.PrintLn(data.Snoep.Naam)
-	p.PrintLn("")
+	// p.Size(2, 2)
+	// p.PrintLn(data.Snoep.Naam)
+	// p.PrintLn("")
 
-	p.PrintLn("Sinterklaas Snoep")
+	// p.PrintLn("Sinterklaas Snoep")
 
-	p.PrintLn(fmt.Sprintf("volwassenen: %d", data.Snoep.Volwassenen))
-	p.PrintLn(fmt.Sprintf("kinderen: %d", data.Snoep.Kinderen))
+	// p.PrintLn(fmt.Sprintf("volwassenen: %d", data.Snoep.Volwassenen))
+	// p.PrintLn(fmt.Sprintf("kinderen: %d", data.Snoep.Kinderen))
 
-	p.Cut()
+	// p.Cut()
 
-	p.End()
+	// p.End()
 
 	return c.JSON(http.StatusOK, echo.Map{"status": "ok"})
 }
