@@ -178,7 +178,12 @@ func handleSinterklaasPrint(c echo.Context) error {
 
 		p.PrintLn(entry.Naam)
 		p.PrintLn(entry.Geslacht)
-		p.PrintLn(fmt.Sprintf("%.1f jaar", entry.Leeftijd))
+		if entry.Leeftijd < 1 {
+			p.PrintLn(fmt.Sprintf("%.1f jaar", entry.Leeftijd))
+		} else {
+			p.PrintLn(fmt.Sprintf("%.0f jaar", entry.Leeftijd))
+		}
+
 		p.PrintLn(entry.Opmerking)
 
 		p.PrintLn("")
