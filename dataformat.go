@@ -2,9 +2,10 @@ package main
 
 type MateriaalRequest struct {
 	Klant struct {
-		MVMNummer string `json:"mvmNummer"`
-		Naam      string `json:"naam"`
-		Voornaam  string `json:"voornaam"`
+		MVMNummer        string `json:"mvmNummer"`
+		Naam             string `json:"naam"`
+		Voornaam         string `json:"voornaam"`
+		EenmaligenNummer string `json:"eenmaligenNummer"`
 	} `json:"klant"`
 
 	Items []struct {

@@ -52,13 +52,20 @@ func handleMateriaalPrint(c echo.Context) error {
 	}
 
 	//p.Align(escpos.AlignCenter)
-	p.Barcode(strings.Replace(data.Klant.MVMNummer, "MVM", "", -1), escpos.BarcodeTypeCODE39)
-	p.PrintLn("")
-	p.PrintLn("")
+	if data.Klant.MVMNummer != "" {
+		p.Barcode(strings.Replace(data.Klant.MVMNummer, "MVM", "", -1), escpos.BarcodeTypeCODE39)
+		p.PrintLn("")
+		p.PrintLn("")
+	}
 
 	p.Align(escpos.AlignLeft)
 	p.Size(3, 3)
-	p.PrintLn(data.Klant.MVMNummer)
+	if data.Klant.MVMNummer != "" {
+		p.PrintLn(data.Klant.MVMNummer)
+	}
+	if data.Klant.EenmaligenNummer != "" {
+		p.PrintLn(data.Klant.EenmaligenNummer)
+	}
 	p.Size(2, 2)
 	p.PrintLn(fmt.Sprintf("%s %s", data.Klant.Voornaam, data.Klant.Naam))
 	p.PrintLn("")
