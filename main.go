@@ -170,6 +170,8 @@ func handleSinterklaasPrint(c echo.Context) error {
 	p.Size(3, 3)
 	p.PrintLn(data.Speelgoed.MVMNummer)
 
+	log.Printf("Speelgoed voor %s\n", data.Speelgoed.MVMNummer)
+
 	p.Size(2, 2)
 	p.PrintLn(data.Speelgoed.Naam)
 	p.PrintLn("")
@@ -183,31 +185,38 @@ func handleSinterklaasPrint(c echo.Context) error {
 
 		p.PrintLn(entry.Naam)
 		p.PrintLn(entry.Geslacht)
-		p.PrintLn(fmt.Sprintf("%.1f jaar", entry.Leeftijd))
+		if entry.Leeftijd < 1 {
+			p.PrintLn(fmt.Sprintf("%.1f jaar", entry.Leeftijd))
+		} else {
+			p.PrintLn(fmt.Sprintf("%.0f jaar", entry.Leeftijd))
+		}
+
 		p.PrintLn(entry.Opmerking)
 
 		p.PrintLn("")
 		p.PrintLn("----------------")
 		p.PrintLn("")
+
+		log.Printf("%s is braaf geweest\n", entry.Naam)
 	}
 
 	p.Cut()
 
-	p.Size(3, 3)
-	p.PrintLn(data.Snoep.MVMNummer)
+	// p.Size(3, 3)
+	// p.PrintLn(data.Snoep.MVMNummer)
 
-	p.Size(2, 2)
-	p.PrintLn(data.Snoep.Naam)
-	p.PrintLn("")
+	// p.Size(2, 2)
+	// p.PrintLn(data.Snoep.Naam)
+	// p.PrintLn("")
 
-	p.PrintLn("Sinterklaas Snoep")
+	// p.PrintLn("Sinterklaas Snoep")
 
-	p.PrintLn(fmt.Sprintf("volwassenen: %d", data.Snoep.Volwassenen))
-	p.PrintLn(fmt.Sprintf("kinderen: %d", data.Snoep.Kinderen))
+	// p.PrintLn(fmt.Sprintf("volwassenen: %d", data.Snoep.Volwassenen))
+	// p.PrintLn(fmt.Sprintf("kinderen: %d", data.Snoep.Kinderen))
 
-	p.Cut()
+	// p.Cut()
 
-	p.End()
+	// p.End()
 
 	return c.JSON(http.StatusOK, echo.Map{"status": "ok"})
 }
