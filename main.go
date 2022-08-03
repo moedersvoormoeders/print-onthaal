@@ -74,9 +74,9 @@ func handleMateriaalPrint(c echo.Context) error {
 	totaal := 0.0
 
 	for _, entry := range data.Items {
-		p.PrintLn("")
-		p.PrintLn("----------------")
-		p.PrintLn("")
+		p.Size(1, 1)
+		p.PrintLn("================================================")
+		p.Size(2, 2)
 
 		totaal += entry.Prijs
 
@@ -87,24 +87,26 @@ func handleMateriaalPrint(c echo.Context) error {
 			hasMaat = true
 		}
 		if entry.Ontvanger.Naam != "" {
+			p.Size(1, 1)
 			p.PrintLn(entry.Ontvanger.Naam)
-			p.PrintLn(entry.Ontvanger.Geslacht)
+			p.Size(2, 1)
+			p.Print(entry.Ontvanger.Geslacht)
+			p.Print(" ")
 			if !hasMaat {
 				p.PrintLn(fmt.Sprintf("%d jaar", entry.Ontvanger.Leeftijd))
 			}
 		}
 
 		if hasMaat {
-			p.PrintLn(fmt.Sprintf("Maat: %s", entry.Maat))
+			p.PrintLn(fmt.Sprintf("maat: %s", entry.Maat))
 		}
-
-		p.PrintLn(entry.Opmerking)
+		if entry.Opmerking != "" {
+			p.PrintLn(entry.Opmerking)
+		}
 	}
 
-	p.PrintLn("")
-	p.PrintLn("----------------")
-	p.PrintLn("")
-
+	p.Size(1, 1)
+	p.PrintLn("================================================")
 	p.PrintLn(fmt.Sprintf("\n\nTotaal: %.2f EUR", totaal))
 
 	p.Cut()
