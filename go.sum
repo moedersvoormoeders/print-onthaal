@@ -1,8 +1,6 @@
 github.com/bjarneh/latinx v0.0.0-20120329061922-4dfe9ba2a293 h1:kQGfMtLkjk7aSGf4REldBRcip+25SRGmOWHHjGaZZXM=
 github.com/bjarneh/latinx v0.0.0-20120329061922-4dfe9ba2a293/go.mod h1:HdstVrPoCN+CT+wHjeU6juUog6IM+EShcDoARBbc7cU=
-github.com/citilinkru/libudev v1.0.0 h1:upErSdhsJGdiKxwxPmvcz43fwJJD9R+y1j8BqU4wHog=
 github.com/citilinkru/libudev v1.0.0/go.mod h1:yaNdhdtfJMs5flqeXzUOMO0mT9QnyNh/U/jdY4WhA/I=
-github.com/davecgh/go-spew v1.1.0 h1:ZDRjVQ15GmhC3fiQ8ni8+OwkZQO4DARzQgrnXU1Liz8=
 github.com/davecgh/go-spew v1.1.0/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
 github.com/davecgh/go-spew v1.1.1 h1:vj9j/u1bqnvCEfJOwUhtlOARqs3+rkHYY13jYWTU97c=
 github.com/davecgh/go-spew v1.1.1/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
@@ -19,16 +17,6 @@ github.com/mattn/go-isatty v0.0.8/go.mod h1:Iq45c/XA43vh69/j3iqttzPXn0bhXyGjM0Hd
 github.com/mattn/go-isatty v0.0.9/go.mod h1:YNRxwqDuOph6SZLI9vUUz6OYw3QyUt7WiY2yME+cCiQ=
 github.com/mattn/go-isatty v0.0.12 h1:wuysRhFDzyxgEmMf5xjvJ2M9dZoWAXNNr5LSBS7uHXY=
 github.com/mattn/go-isatty v0.0.12/go.mod h1:cbi8OIDigv2wuxKPP5vlRcQ1OAZbq2CE4Kysco4FUpU=
-github.com/mect/go-escpos v0.0.0-20210227175618-7eb836c11794 h1:dISx0Wu+AD0VkkEUv7PlM3MVvTdtjvtvvuSOyQRW7cI=
-github.com/mect/go-escpos v0.0.0-20210227175618-7eb836c11794/go.mod h1:xmrNEEawhyKcknTSfa6wDEbnRTda9+AUz/9saIIfnTE=
-github.com/mect/go-escpos v0.0.0-20210228214837-a7ef3950d9fc h1:xIy2xhMZH9MTeyNdn4cae0nBF/bUfu07DgE/S62F2s8=
-github.com/mect/go-escpos v0.0.0-20210228214837-a7ef3950d9fc/go.mod h1:xmrNEEawhyKcknTSfa6wDEbnRTda9+AUz/9saIIfnTE=
-github.com/mect/go-escpos v0.0.0-20210303202441-96d5901e365c h1:3ASbz/euK4+EfOdUD9+i4VLonQrx04LN0ZK0IsIcFXA=
-github.com/mect/go-escpos v0.0.0-20210303202441-96d5901e365c/go.mod h1:Iz0UTSrnNxJI/+pkmGh9vw8Fj1ALtAur09KUgDziQ44=
-github.com/mect/go-escpos v0.0.0-20210303211126-5a0d0ffac65d h1:+VkTz5UxHBztRhVBTcuF6naApJaUacdD+bBYEju1qa8=
-github.com/mect/go-escpos v0.0.0-20210303211126-5a0d0ffac65d/go.mod h1:Iz0UTSrnNxJI/+pkmGh9vw8Fj1ALtAur09KUgDziQ44=
-github.com/mect/go-escpos v0.0.0-20210303220453-291d67a5b6a9 h1:dpH7PurJp3+HwEtDIlsmKzVdifKQOxrcVjbmCVTCpPo=
-github.com/mect/go-escpos v0.0.0-20210303220453-291d67a5b6a9/go.mod h1:Iz0UTSrnNxJI/+pkmGh9vw8Fj1ALtAur09KUgDziQ44=
 github.com/mect/go-escpos v0.0.0-20210325080415-f7f1d2244377 h1:dd2CPI3geu2mPP7hgx2TO1UgaAex4C2yQ4WIXHSJnik=
 github.com/mect/go-escpos v0.0.0-20210325080415-f7f1d2244377/go.mod h1:Iz0UTSrnNxJI/+pkmGh9vw8Fj1ALtAur09KUgDziQ44=
 github.com/pmezard/go-difflib v1.0.0 h1:4DBwDE0NGyQoBHbLQYPwSUPoCMWR5BEzIk/f1lZbAQM=
