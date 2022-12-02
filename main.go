@@ -169,56 +169,46 @@ func handleSinterklaasPrint(c echo.Context) error {
 		return c.JSON(http.StatusOK, echo.Map{"status": "error", "error": "Printer reageert niet, check status en papier"})
 	}
 
-	p.Size(3, 3)
-	p.PrintLn(data.Speelgoed.MVMNummer)
-
-	log.Printf("Speelgoed voor %s\n", data.Speelgoed.MVMNummer)
-
-	p.Size(2, 2)
-	p.PrintLn(data.Speelgoed.Naam)
-	p.PrintLn("")
-
-	p.PrintLn("Sinterklaas")
-
-	for _, entry := range data.Speelgoed.Paketten {
-		p.PrintLn("")
-		p.PrintLn("----------------")
-		p.PrintLn("")
-
-		p.PrintLn(entry.Naam)
-		p.PrintLn(entry.Geslacht)
-		if entry.Leeftijd < 1 {
-			p.PrintLn(fmt.Sprintf("%.1f jaar", entry.Leeftijd))
-		} else {
-			p.PrintLn(fmt.Sprintf("%.0f jaar", entry.Leeftijd))
-		}
-
-		p.PrintLn(entry.Opmerking)
-
-		p.PrintLn("")
-		p.PrintLn("----------------")
-		p.PrintLn("")
-
-		log.Printf("%s is braaf geweest\n", entry.Naam)
-	}
-
-	p.Cut()
-
 	// p.Size(3, 3)
-	// p.PrintLn(data.Snoep.MVMNummer)
+	// p.PrintLn(data.Speelgoed.MVMNummer)
 
 	// p.Size(2, 2)
-	// p.PrintLn(data.Snoep.Naam)
+	// p.PrintLn(data.Speelgoed.Naam)
 	// p.PrintLn("")
 
-	// p.PrintLn("Sinterklaas Snoep")
+	// p.PrintLn("Sinterklaas")
 
-	// p.PrintLn(fmt.Sprintf("volwassenen: %d", data.Snoep.Volwassenen))
-	// p.PrintLn(fmt.Sprintf("kinderen: %d", data.Snoep.Kinderen))
+	// for _, entry := range data.Speelgoed.Paketten {
+	// 	p.PrintLn("")
+	// 	p.PrintLn("----------------")
+	// 	p.PrintLn("")
+
+	// 	p.PrintLn(entry.Naam)
+	// 	p.PrintLn(entry.Geslacht)
+	// 	p.PrintLn(fmt.Sprintf("%.1f jaar", entry.Leeftijd))
+	// 	p.PrintLn(entry.Opmerking)
+
+	// 	p.PrintLn("")
+	// 	p.PrintLn("----------------")
+	// 	p.PrintLn("")
+	// }
 
 	// p.Cut()
 
-	// p.End()
+	p.Size(3, 3)
+	p.PrintLn(data.Snoep.MVMNummer)
+
+	p.Size(2, 2)
+	p.PrintLn(data.Snoep.Naam)
+	p.PrintLn("")
+
+	p.PrintLn("Sinterklaas Snoep")
+	p.PrintLn("")
+	p.PrintLn(fmt.Sprintf("%d personen", data.Snoep.Personen))
+
+	p.Cut()
+
+	p.End()
 
 	return c.JSON(http.StatusOK, echo.Map{"status": "ok"})
 }
