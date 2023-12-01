@@ -195,7 +195,11 @@ func handleSinterklaasPrint(c echo.Context) error {
 
 	// p.Cut()
 
+	p.Size(4, 4)
+	p.PrintLn(fmt.Sprintf("%d", data.Snoep.VolgNummer))
+
 	p.Size(3, 3)
+	p.PrintLn("")
 	p.PrintLn(data.Snoep.MVMNummer)
 
 	p.Size(2, 2)

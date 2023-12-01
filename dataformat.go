@@ -40,8 +40,9 @@ type SinterklaasRequest struct {
 		} `json:"paketten"`
 	} `json:speelgoed`
 	Snoep struct {
-		MVMNummer string `json:"mvmNummer"`
-		Naam      string `json:"naam"`
-		Personen  int    `json:"personen"`
+		MVMNummer  string `json:"mvmNummer"`
+		VolgNummer int    `json:"volgNummer"`
+		Naam       string `json:"naam"`
+		Personen   int    `json:"personen"`
 	} `json:snoep`
 }
