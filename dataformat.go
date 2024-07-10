@@ -46,3 +46,22 @@ type SinterklaasRequest struct {
 		Personen   int    `json:"personen"`
 	} `json:snoep`
 }
+
+type MarktTicketKind struct {
+	Naam     string `json:"naam"`
+	Leeftijd int    `json:"leeftijd"`
+	Geslacht string `json:"geslacht"`
+}
+
+type MarktRequest struct {
+	Naam         string `json:"naam"`
+	Beschrijving string `json:"beschrijving"`
+
+	MVMNummer string `json:"mvmnummer"`
+
+	Kinderen []MarktTicketKind `json:"kinderen"`
+
+	MarktID uint `json:"markt_id"`
+
+	Barcode string `json:"barcode"`
+}
