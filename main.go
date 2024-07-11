@@ -267,7 +267,7 @@ func handleMarktPrint(c echo.Context) error {
 
 	p.Size(1, 1)
 	p.PrintLn("==========================================")
-	p.Aztec(data.Barcode, 5)
+	p.AztecViaImage(data.Barcode)
 
 	p.Feed(2)
 

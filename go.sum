@@ -1,6 +1,7 @@
 github.com/bjarneh/latinx v0.0.0-20120329061922-4dfe9ba2a293 h1:kQGfMtLkjk7aSGf4REldBRcip+25SRGmOWHHjGaZZXM=
 github.com/bjarneh/latinx v0.0.0-20120329061922-4dfe9ba2a293/go.mod h1:HdstVrPoCN+CT+wHjeU6juUog6IM+EShcDoARBbc7cU=
-github.com/citilinkru/libudev v1.0.0/go.mod h1:yaNdhdtfJMs5flqeXzUOMO0mT9QnyNh/U/jdY4WhA/I=
+github.com/boombuler/barcode v1.0.2 h1:79yrbttoZrLGkL/oOI8hBrUKucwOL0oOjUgEguGMcJ4=
+github.com/boombuler/barcode v1.0.2/go.mod h1:paBWMcWSl3LHKBqUq+rly7CNSldXjb2rDl3JlRe0mD8=
 github.com/davecgh/go-spew v1.1.0/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
 github.com/davecgh/go-spew v1.1.1 h1:vj9j/u1bqnvCEfJOwUhtlOARqs3+rkHYY13jYWTU97c=
 github.com/davecgh/go-spew v1.1.1/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
@@ -14,10 +15,8 @@ github.com/mattn/go-colorable v0.1.11 h1:nQ+aFkoE2TMGc0b68U2OKSexC+eq46+XwZzWXHR
 github.com/mattn/go-colorable v0.1.11/go.mod h1:u5H1YNBxpqRaxsYJYSkiCWKzEfiAb1Gb520KVy5xxl4=
 github.com/mattn/go-isatty v0.0.14 h1:yVuAays6BHfxijgZPzw+3Zlu5yQgKGP2/hcQbHb7S9Y=
 github.com/mattn/go-isatty v0.0.14/go.mod h1:7GGIvUiUoEMVVmxf/4nioHXj79iQHKdU27kJ6hsGG94=
-github.com/mect/go-escpos v0.0.0-20210325080415-f7f1d2244377 h1:dd2CPI3geu2mPP7hgx2TO1UgaAex4C2yQ4WIXHSJnik=
-github.com/mect/go-escpos v0.0.0-20210325080415-f7f1d2244377/go.mod h1:Iz0UTSrnNxJI/+pkmGh9vw8Fj1ALtAur09KUgDziQ44=
-github.com/mect/go-escpos v0.0.0-20240430120839-ff5f6d2d602e h1:pRpD/58ASImkkwpPaDmlMZxINUOEr8cAplL0kWIc1po=
-github.com/mect/go-escpos v0.0.0-20240430120839-ff5f6d2d602e/go.mod h1:tcGtlkrZsJ1b+4FjJRi1GcWipHKAJDv/73V45z7v8cg=
+github.com/mect/go-escpos v0.0.0-20240711081056-e6cdac0220a5 h1:U0JddQmzUs4jwYlvPMkoZzEQL5p3zSGBE0+B5IXw65M=
+github.com/mect/go-escpos v0.0.0-20240711081056-e6cdac0220a5/go.mod h1:MZ+cKP2Ohhaw/gkQB+Uq5kOZu+mK2d38Y115YM87p3Y=
 github.com/pmezard/go-difflib v1.0.0 h1:4DBwDE0NGyQoBHbLQYPwSUPoCMWR5BEzIk/f1lZbAQM=
 github.com/pmezard/go-difflib v1.0.0/go.mod h1:iKH77koFhYxTK1pcRnkKkqfTogsbg7gZNVY4sRDYZ/4=
 github.com/stretchr/objx v0.1.0/go.mod h1:HFkY916IF+rwdDfMAkV7OtwuqBVzrE8GR6GFx+wExME=

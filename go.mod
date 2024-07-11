@@ -4,12 +4,12 @@ go 1.19
 
 require (
 	github.com/labstack/echo/v4 v4.7.2
-	github.com/mect/go-escpos v0.0.0-20240430120839-ff5f6d2d602e
+	github.com/mect/go-escpos v0.0.0-20240711081056-e6cdac0220a5
 )
 
 require (
 	github.com/bjarneh/latinx v0.0.0-20120329061922-4dfe9ba2a293 // indirect
-	github.com/davecgh/go-spew v1.1.1 // indirect
+	github.com/boombuler/barcode v1.0.2 // indirect
 	github.com/golang-jwt/jwt v3.2.2+incompatible // indirect
 	github.com/labstack/gommon v0.3.1 // indirect
 	github.com/mattn/go-colorable v0.1.11 // indirect
