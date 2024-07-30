@@ -4,7 +4,7 @@ go 1.19
 
 require (
 	github.com/labstack/echo/v4 v4.7.2
-	github.com/mect/go-escpos v0.0.0-20240711081056-e6cdac0220a5
+	github.com/mect/go-escpos v0.0.0-20240725094433-67b291810113
 )
 
 require (
