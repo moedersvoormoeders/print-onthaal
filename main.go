@@ -1,13 +1,17 @@
 package main
 
 import (
+	"bytes"
+	"encoding/base64"
 	"fmt"
+	"html/template"
 	"log"
 	"net/http"
 	"strings"
 	"sync"
 
 	"github.com/labstack/echo/v4/middleware"
+	datapkg "github.com/moedersvoormoeders/print-onthaal/data"
 
 	"github.com/labstack/echo/v4"
 	"github.com/mect/go-escpos"
@@ -33,18 +37,48 @@ func main() {
 }
 
 func handleMateriaalPrint(c echo.Context) error {
-	data := MateriaalRequest{}
+	data := datapkg.MateriaalRequest{}
 	c.Bind(&data)
 
+	mainItems := []datapkg.MateriaalItem{}
+	seperateItems := []datapkg.MateriaalItem{}
+	for _, item := range data.Items {
+		if item.SeperateReceipt {
+			seperateItems = append(seperateItems, item)
+		} else {
+			mainItems = append(mainItems, item)
+		}
+	}
+
+	if len(mainItems) > 0 {
+		err := printMateriaalTicket(c, data, mainItems)
+		if err != nil {
+			return err
+		}
+	}
+
+	if len(seperateItems) > 0 {
+		for _, item := range seperateItems {
+			err := printMateriaalTicket(c, data, []datapkg.MateriaalItem{item})
+			if err != nil {
+				return err
+			}
+		}
+	}
+
+	return c.JSON(http.StatusOK, echo.Map{"status": "ok"})
+}
+
+func printMateriaalTicket(c echo.Context, data datapkg.MateriaalRequest, items []datapkg.MateriaalItem) error {
 	printMutex.Lock()
 
 	defer printMutex.Unlock()
 	p, err := escpos.NewUSBPrinterByPath("") // auto discover USB
-	defer p.Close()
 	if err != nil {
 		log.Println(err)
 		return c.JSON(http.StatusOK, echo.Map{"status": "error", "error": err.Error()})
 	}
+	defer p.Close()
 
 	err = p.Init()
 	if err != nil {
@@ -74,7 +108,7 @@ func handleMateriaalPrint(c echo.Context) error {
 
 	totaal := 0.0
 
-	for _, entry := range data.Items {
+	for _, entry := range items {
 		p.Size(1, 1)
 		p.PrintLn("==========================================")
 		p.Size(2, 2)
@@ -104,6 +138,28 @@ func handleMateriaalPrint(c echo.Context) error {
 		if entry.Opmerking != "" {
 			p.PrintLn(entry.Opmerking)
 		}
+
+		if entry.ExtraEscposData != "" {
+			// base64 decode ExtraEscposData
+			base64Decoded, err := base64.StdEncoding.DecodeString(entry.ExtraEscposData)
+			if err != nil {
+				return c.JSON(http.StatusInternalServerError, echo.Map{"status": "error", "error": err.Error()})
+			}
+
+			tmpl, err := template.New("print").Parse(string(base64Decoded))
+			if err != nil {
+				return c.JSON(http.StatusInternalServerError, echo.Map{"status": "error", "error": err.Error()})
+			}
+			escposData := bytes.NewBufferString("")
+			err = tmpl.Execute(escposData, data)
+			if err != nil {
+				return c.JSON(http.StatusInternalServerError, echo.Map{"status": "error", "error": err.Error()})
+			}
+
+			p.Align(escpos.AlignLeft)
+			p.Size(1, 1)
+			p.Print(escposData.String())
+		}
 	}
 
 	p.Size(1, 1)
@@ -113,11 +169,11 @@ func handleMateriaalPrint(c echo.Context) error {
 	p.Cut()
 	p.End()
 
-	return c.JSON(http.StatusOK, echo.Map{"status": "ok"})
+	return nil
 }
 
 func handleEenmaligenPrint(c echo.Context) error {
-	data := RequestEenmaligen{}
+	data := datapkg.RequestEenmaligen{}
 	c.Bind(&data)
 
 	printMutex.Lock()
@@ -152,7 +208,7 @@ func handleEenmaligenPrint(c echo.Context) error {
 }
 
 func handleSinterklaasPrint(c echo.Context) error {
-	data := SinterklaasRequest{}
+	data := datapkg.SinterklaasRequest{}
 	c.Bind(&data)
 
 	printMutex.Lock()
@@ -219,7 +275,7 @@ func handleSinterklaasPrint(c echo.Context) error {
 }
 
 func handleMarktPrint(c echo.Context) error {
-	data := MarktRequest{}
+	data := datapkg.MarktRequest{}
 	c.Bind(&data)
 
 	printMutex.Lock()
