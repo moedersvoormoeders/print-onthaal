@@ -1,24 +1,31 @@
-package main
+package data
+
+type Ontvanger struct {
+	Geslacht string `json:"geslacht"`
+	Leeftijd int    `json:"leeftijd"`
+	Naam     string `json:"naam"`
+}
+
+type MateriaalItem struct {
+	Object          string    `json:"object"`
+	Prijs           float64   `json:"prijs"`
+	Maat            string    `json:"maat"`
+	Opmerking       string    `json:"opmerking"`
+	ExtraEscposData string    `json:"extraEscposData"` // this is raw ESC/POS data that will be printed
+	SeperateReceipt bool      `json:"seperateReceipt"` // if true, this object will be printed on a seperate receipt
+	Ontvanger       Ontvanger `json:"ontvanger"`
+}
+type MateriaalKlant struct {
+	MVMNummer        string `json:"mvmNummer"`
+	Naam             string `json:"naam"`
+	Voornaam         string `json:"voornaam"`
+	EenmaligenNummer string `json:"eenmaligenNummer"`
+}
 
 type MateriaalRequest struct {
-	Klant struct {
-		MVMNummer        string `json:"mvmNummer"`
-		Naam             string `json:"naam"`
-		Voornaam         string `json:"voornaam"`
-		EenmaligenNummer string `json:"eenmaligenNummer"`
-	} `json:"klant"`
+	Klant MateriaalKlant `json:"klant"`
 
-	Items []struct {
-		Object    string  `json:"object"`
-		Prijs     float64 `json:"prijs"`
-		Maat      string  `json:"maat"`
-		Opmerking string  `json:"opmerking"`
-		Ontvanger struct {
-			Geslacht string `json:"geslacht"`
-			Leeftijd int    `json:"leeftijd"`
-			Naam     string `json:"naam"`
-		} `json:"ontvanger"`
-	} `json:"items`
+	Items []MateriaalItem `json:"items`
 }
 
 type RequestEenmaligen struct {
