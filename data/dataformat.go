@@ -26,6 +26,8 @@ type MateriaalRequest struct {
 	Klant MateriaalKlant `json:"klant"`
 
 	Items []MateriaalItem `json:"items`
+
+	Datum string `json:"datum"`
 }
 
 type RequestEenmaligen struct {

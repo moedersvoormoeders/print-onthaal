@@ -9,6 +9,7 @@ import (
 	"net/http"
 	"strings"
 	"sync"
+	"time"
 
 	"github.com/labstack/echo/v4/middleware"
 	datapkg "github.com/moedersvoormoeders/print-onthaal/data"
@@ -39,6 +40,8 @@ func main() {
 func handleMateriaalPrint(c echo.Context) error {
 	data := datapkg.MateriaalRequest{}
 	c.Bind(&data)
+
+	data.Klant.MVMNummer = strings.Replace(data.Klant.MVMNummer, "MVM", "", -1)
 
 	mainItems := []datapkg.MateriaalItem{}
 	seperateItems := []datapkg.MateriaalItem{}
@@ -151,6 +154,7 @@ func printMateriaalTicket(c echo.Context, data datapkg.MateriaalRequest, items [
 				return c.JSON(http.StatusInternalServerError, echo.Map{"status": "error", "error": err.Error()})
 			}
 			escposData := bytes.NewBufferString("")
+			data.Datum = time.Now().Format("2006-01-02")
 			err = tmpl.Execute(escposData, data)
 			if err != nil {
 				return c.JSON(http.StatusInternalServerError, echo.Map{"status": "error", "error": err.Error()})
